@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f0c29;
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #00d2ff;
+    animation: pulse 2s infinite;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(0, 210, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+}
+
+.tabs {
+    margin-top: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.tab-btn.active {
+    border-bottom: 3px solid #00d2ff;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-area">
+            <div class="profile-pic">
+                <img src="1759676595404_1.jpg" alt="Minha Foto">
+            </div>
+            <h1>Walter Damião</h1>
+            <p>Desenvolvedor Full Stack | Designer</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'sobre')">Sobre</button>
+            <button class="tab-btn" onclick="openTab(event, 'projetos')">Projetos</button>
+            <button class="tab-btn" onclick="openTab(event, 'contato')">Contato</button>
+        </div>
+
+        <div id="sobre" class="tab-content active">
+            <h2>Sobre Mim</h2>
+            <p>Olá! Sou apaixonado por tecnologia e transformo café em código. Tenho experiência com as melhores tecnologias do mercado.</p>
+        </div>
+
+        <div id="projetos" class="tab-content">
+            <h2>Meus Projetos</h2>
+            <ul>
+                <li>🚀 E-commerce responsivo</li>
+                <li>📱 App de Finanças</li>
+                <li>🌐 Landing Page de Alta Conversão</li>
+            </ul>
+        </div>
+
+        <div id="contato" class="tab-content">
+            <h2>Contato</h2>
+            <p>Email: walterdamiao23@gmail.com</p>
+            <div class="social-links">
+                <a href="#">LinkedIn🔗</a> | <a href="#">GitHub😼</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+
+    let tabContents = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+    }
+
+    let tabBtns = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+    }
+
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
+    </script>
+</body>
+</html>
